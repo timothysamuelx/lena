@@ -13,7 +13,7 @@ export const site = {
     "Nandun Nethanga Perera is a UI/UX Designer designing user-centred interfaces for web and mobile, with a background in User Experience Design, Business Information Systems and technology quality assurance.",
 
   contact: {
-    email: "Nandun.nethanga@gmail.com",
+    email: "nandun.nethanga@gmail.com",
     // Add real profile URLs to show these links. Empty values are hidden.
     linkedin: "",
     dribbble: "",

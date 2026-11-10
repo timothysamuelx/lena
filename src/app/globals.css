@@ -44,7 +44,7 @@
 
 @theme inline {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-newsreader), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-serif: var(--font-display-serif), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 
   --color-bg: var(--bg);
   --color-surface: var(--surface);

@@ -13,7 +13,7 @@ export function HeroSelection({ children }: { children: React.ReactNode }) {
     <span className="relative inline-block">
       <motion.span
         aria-hidden
-        className="pointer-events-none absolute -inset-x-[0.12em] -top-[0.08em] bottom-[0.17em] border border-accent"
+        className="pointer-events-none absolute -inset-x-[0.12em] top-[0.07em] bottom-[0.08em] border border-accent"
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
