@@ -36,7 +36,7 @@ export const site = {
       primary: { label: "Explore my work", href: "#work" },
       secondary: { label: "Get in touch", href: "#contact" },
     },
-    specialisms: ["UI Design", "UX Research", "Wireframing", "Prototyping", "Usability Evaluation"],
+    specialisms: ["UI Design", "UX Research", "Wireframing", "Prototyping", "Usability"],
     /** Short facts under the hero. Each item: a main line and an optional detail. */
     education: [{ main: "MSc User Experience Design", detail: "Birmingham City University" }],
     previously: [
