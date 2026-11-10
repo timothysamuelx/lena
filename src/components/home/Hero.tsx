@@ -25,7 +25,7 @@ export function Hero() {
           delay={0.15}
           className="max-w-[17ch] text-balance font-serif text-[clamp(2.6rem,6.4vw,5rem)] font-[370] leading-[1.04] tracking-[-0.032em] text-ink"
           highlightWord={hero.highlight}
-          highlight={<HeroSelection cursorLabel={site.shortName.split(" ")[0]}>{hero.highlight}</HeroSelection>}
+          highlight={<HeroSelection>{hero.highlight}</HeroSelection>}
         />
 
         <Reveal delay={0.55} className="mt-10 max-w-[60ch]">

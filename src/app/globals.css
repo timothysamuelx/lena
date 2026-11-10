@@ -285,9 +285,10 @@ body {
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 
-/* Hide the native cursor where the custom "multiplayer" cursor takes over. */
+/* The custom accent pointer replaces the system cursor on mouse devices. */
 @media (pointer: fine) {
-  [data-cursor-active="true"] [data-cursor] { cursor: none; }
+  [data-cursor-active="true"],
+  [data-cursor-active="true"] * { cursor: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
