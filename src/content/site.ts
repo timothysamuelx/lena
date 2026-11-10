@@ -27,11 +27,11 @@ export const site = {
   ],
 
   hero: {
-    headline: "Designing intuitive digital experiences through thoughtful problem-solving.",
+    headline: "Designing intuitive digital experiences.",
     /** Word in the headline that gets the design-tool "selection" treatment. */
     highlight: "intuitive",
     intro:
-      "I design user-centred interfaces for web and mobile experiences, bringing together usability, visual clarity, and an understanding of how digital products work. My background in User Experience Design and Business Information Systems, alongside experience in quality assurance and risk advisory, helps me approach design challenges with both user needs and business requirements in mind.",
+      "I design user-centred interfaces for web and mobile, drawing on a background in UX design, business information systems and quality assurance to balance user needs with business goals.",
     ctas: {
       primary: { label: "Explore my work", href: "#work" },
       secondary: { label: "Get in touch", href: "#contact" },
