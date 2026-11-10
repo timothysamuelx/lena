@@ -51,6 +51,10 @@ export const site = {
     title: "Experience",
     intro:
       "My experience spans interface design, user research, prototyping, usability evaluation, and technology quality assurance.",
+    /** How many points to show per role (the first N in each list). */
+    pointsPerRole: 2,
+    /** Marker for each point: "square" | "number" | "rule" | "arrow". */
+    pointStyle: "square" as "square" | "number" | "rule" | "arrow",
     roles: [
       {
         company: "Lyxux UK",
@@ -85,10 +89,10 @@ export const site = {
         summary:
           "Worked on web and mobile interface design, user research, and prototyping to support consistent and usable digital experiences.",
         points: [
-          "Designed interfaces for web and mobile applications, maintaining visual consistency.",
           "Conducted user research through surveys, interviews, and usability tests.",
-          "Developed wireframes and prototypes for mobile applications.",
           "Identified navigation issues during usability testing and refined designs in response.",
+          "Designed interfaces for web and mobile applications, maintaining visual consistency.",
+          "Developed wireframes and prototypes for mobile applications.",
         ],
       },
       {
@@ -99,8 +103,8 @@ export const site = {
           "Built analytical and quality-focused experience through application assessments and technology risk work.",
         points: [
           "Conducted quality assurance assessments against industry standards and specifications.",
-          "Identified potential vulnerabilities in client network infrastructure and provided recommendations.",
           "Reviewed application functionality, security, and performance through structured testing.",
+          "Identified potential vulnerabilities in client network infrastructure and provided recommendations.",
           "Contributed to improving application reliability, security, and operational efficiency.",
         ],
       },

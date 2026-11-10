@@ -2,7 +2,7 @@ import { draftMode } from "next/headers";
 import { Suspense } from "react";
 
 import { Contact } from "@/components/home/Contact";
-import { ExperienceList } from "@/components/home/ExperienceList";
+import { Experience } from "@/components/home/Experience";
 import { Hero } from "@/components/home/Hero";
 import { Section, SectionHeader } from "@/components/home/SectionHeader";
 import { WorkGrid } from "@/components/home/WorkGrid";
@@ -49,7 +49,7 @@ export default async function HomePage() {
 
         <Section id="experience">
           <SectionHeader index="02" title={site.experience.title} intro={site.experience.intro} />
-          <ExperienceList roles={site.experience.roles} />
+          <Experience roles={site.experience.roles} pointsPerRole={site.experience.pointsPerRole} pointStyle={site.experience.pointStyle} />
         </Section>
 
         <Contact />
