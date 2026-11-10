@@ -27,7 +27,15 @@ export function WordReveal({ text, className, delay = 0, stagger = 0.06, highlig
       aria-label={text}
     >
       {words.map((word, i) => {
-        const custom = highlightWord && word.toLowerCase().replace(/[^\p{L}-]/gu, "") === highlightWord.toLowerCase() ? highlight : null;
+        const matches = highlightWord && word.toLowerCase().replace(/[^\p{L}-]/gu, "") === highlightWord.toLowerCase();
+        // Keep punctuation that follows the highlighted word (e.g. a comma) outside the box.
+        const trailing = matches ? (/[^\p{L}-]+$/u.exec(word)?.[0] ?? "") : "";
+        const custom = matches ? (
+          <>
+            {highlight}
+            {trailing && <span className="ml-[0.18em]">{trailing}</span>}
+          </>
+        ) : null;
         return (
         <Fragment key={i}>
           {/* Custom words (e.g. with decorations) aren't masked so nothing gets clipped. */}
