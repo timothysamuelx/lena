@@ -37,7 +37,7 @@ export default async function HomePage() {
         <Hero />
 
         <Section id="work">
-          <SectionHeader index="01" title={site.work.title} intro={site.work.intro} />
+          <SectionHeader title={site.work.title} intro={site.work.intro} />
           {isDraft ? (
             <Suspense fallback={<div className="h-96" />}>
               <DraftWork />
@@ -48,7 +48,7 @@ export default async function HomePage() {
         </Section>
 
         <Section id="experience">
-          <SectionHeader index="02" title={site.experience.title} intro={site.experience.intro} />
+          <SectionHeader title={site.experience.title} intro={site.experience.intro} />
           <Experience roles={site.experience.roles} pointsPerRole={site.experience.pointsPerRole} pointStyle={site.experience.pointStyle} />
         </Section>
 

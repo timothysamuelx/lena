@@ -1,6 +1,5 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { ArrowIcon } from "@/components/site/Button";
-import { CopyEmail } from "@/components/site/CopyEmail";
 import { site } from "@/content/site";
 
 export function Contact() {
@@ -31,7 +30,9 @@ export function Contact() {
           <Reveal className="space-y-8 md:pt-1" delay={0.2}>
             <div>
               <p className="mb-2 text-[15px] text-subtle">Email</p>
-              <CopyEmail email={contact.email} className="font-serif text-[clamp(1.375rem,2.6vw,2rem)] text-ink" />
+              <a href={`mailto:${contact.email}`} className="link break-all font-serif text-[clamp(1.375rem,2.6vw,2rem)] text-ink" data-cursor="Say hello">
+                {contact.email}
+              </a>
             </div>
             {socials.length > 0 && (
               <ul className="flex flex-wrap gap-6 text-[15px]">

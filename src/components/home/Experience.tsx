@@ -53,7 +53,7 @@ function Points({ items, style }: { items: readonly string[]; style: PointStyle 
 /** Always-open experience list: dates, role, summary and the strongest points, no clicks. */
 export function Experience({ roles, pointsPerRole, pointStyle }: { roles: readonly Role[]; pointsPerRole: number; pointStyle: PointStyle }) {
   return (
-    <ol className="border-b border-line">
+    <ol>
       {roles.map((r, i) => (
         <Reveal
           as="li"
