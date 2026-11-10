@@ -41,7 +41,7 @@ export function Header({ crumb }: HeaderProps) {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 h-[var(--header-h)] transition-[background-color,border-color,backdrop-filter] duration-500",
-          scrolled && !open ? "border-b border-line bg-bg/75 backdrop-blur-xl" : "border-b border-transparent",
+          scrolled && !open ? "border-b border-line bg-bg/75 backdrop-blur-xl" : "border-b border-transparent bg-bg",
         )}
       >
         <div className="flex h-full items-center justify-between px-6">

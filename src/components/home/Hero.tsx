@@ -2,6 +2,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { WordReveal } from "@/components/motion/WordReveal";
 import { ArrowIcon, Button } from "@/components/site/Button";
 import { site } from "@/content/site";
+import { cn } from "@/lib/utils";
 
 import { HeroSelection } from "./HeroSelection";
 
@@ -52,13 +53,13 @@ export function Hero() {
           </Fact>
           <Fact label="Previously">
             {hero.previously.map((r) => (
-              <li key={r.main} className="grid grid-cols-[9.5rem_1fr] items-baseline gap-x-4">
+              <li key={r.main}>
                 <span className="text-ink/85">{r.main}</span>
-                <span className="text-muted">{r.detail}</span>
+                <span className="text-muted"> · {r.detail}</span>
               </li>
             ))}
           </Fact>
-          <Fact label="Focus">
+          <Fact label="Focus" listClassName="grid-cols-[max-content_max-content] gap-x-8">
             {hero.specialisms.map((f) => (
               <li key={f} className="text-ink/85">
                 {f}
@@ -72,11 +73,11 @@ export function Hero() {
 }
 
 /** One column of the facts row: a quiet label above an evenly spaced list. */
-function Fact({ label, children }: { label: string; children: React.ReactNode }) {
+function Fact({ label, children, listClassName }: { label: string; children: React.ReactNode; listClassName?: string }) {
   return (
     <div>
       <p className="mb-3 text-[13.5px] text-subtle">{label}</p>
-      <ul className="grid gap-1.5">{children}</ul>
+      <ul className={cn("grid gap-1.5", listClassName)}>{children}</ul>
     </div>
   );
 }
