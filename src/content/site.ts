@@ -22,7 +22,6 @@ export const site = {
   nav: [
     { id: "work", label: "Work" },
     { id: "experience", label: "Experience" },
-    { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
   ],
 
@@ -104,100 +103,6 @@ export const site = {
           "Reviewed application functionality, security, and performance through structured testing.",
           "Contributed to improving application reliability, security, and operational efficiency.",
         ],
-      },
-    ],
-  },
-
-  capabilities: {
-    title: "What I Do",
-    intro:
-      "I work across key stages of the design process, from understanding user needs to shaping and evaluating digital interfaces.",
-    items: [
-      {
-        icon: "interface",
-        title: "UI Design",
-        body: "Creating clear, consistent, and visually engaging interfaces that help people navigate and interact with digital products.",
-      },
-      {
-        icon: "research",
-        title: "UX Research",
-        body: "Exploring user needs, behaviours, and challenges through research and usability testing to inform design decisions.",
-      },
-      {
-        icon: "prototype",
-        title: "Wireframing & Prototyping",
-        body: "Turning early ideas into structured wireframes and interactive prototypes to communicate, explore, and refine digital experiences.",
-      },
-      {
-        icon: "evaluate",
-        title: "Usability & Experience Evaluation",
-        body: "Reviewing user interactions, identifying usability issues, and refining designs to make experiences more intuitive.",
-      },
-    ],
-  },
-
-  skills: {
-    title: "Skills & Capabilities",
-    groups: [
-      {
-        title: "Design",
-        items: ["User Interface Design", "User-Centred Design", "Wireframing", "Prototyping", "User Research", "Usability Testing"],
-      },
-      {
-        title: "Analytical & Technical",
-        items: ["Quality Assurance", "Risk Analysis", "Business Process Mapping", "Requirements Gathering", "Problem-Solving", "Critical Thinking"],
-      },
-      {
-        title: "Professional",
-        items: ["Collaboration & Communication", "Attention to Detail", "Time Management", "Adaptability", "Reporting & Documentation"],
-      },
-    ],
-  },
-
-  about: {
-    title: "A little about me",
-    lead: "I’m Nandun Nethanga Perera, a UI/UX Designer with a Master’s degree in User Experience Design and a Bachelor’s degree in Business Information Systems.",
-    paragraphs: [
-      "I have experience designing user-centred interfaces for web and mobile applications, conducting user research, developing wireframes and prototypes, and evaluating usability. My background in quality assurance and risk advisory has strengthened my analytical thinking, attention to detail, and ability to approach design challenges from both user and business perspectives.",
-      "I’m interested in creating accessible, functional, and engaging digital products that make everyday interactions simpler and more meaningful.",
-    ],
-  },
-
-  education: {
-    title: "Education",
-    items: [
-      {
-        school: "Birmingham City University",
-        degree: "MSc User Experience Design",
-        location: "United Kingdom",
-        period: "2025 — 2026",
-        body: "Postgraduate study in User Experience Design, developing knowledge of user experience principles, user-centred design, and the design and evaluation of digital experiences.",
-        modules: [] as string[],
-      },
-      {
-        school: "University of Westminster",
-        degree: "BSc (Hons) Business Information Systems",
-        location: "United Kingdom",
-        period: "2021 — 2024",
-        body: "Undergraduate study combining business and technology, with academic areas including:",
-        modules: [
-          "BIS Design and Architecture",
-          "Agile Project Management",
-          "Information Technology Security",
-          "Database Systems",
-          "Server-Side Web Development",
-          "Business Analytics",
-          "Strategic Management of Information Systems",
-          "Big Data Analysis",
-        ],
-      },
-      {
-        school: "Empower Culinary and Hospitality School",
-        degree: "Commercial Cookery",
-        location: "Sri Lanka",
-        period: "2017 — 2018",
-        body: "",
-        modules: [] as string[],
       },
     ],
   },

@@ -52,7 +52,7 @@ see every layout option. They disappear automatically once Sanity is configured.
 
 ### Landing page — `src/content/site.ts`
 
-All landing-page copy (hero, experience, skills, about, education, contact) comes from
+All landing-page copy (hero intro, selected-work intro, experience, contact) comes from
 Nandun’s content brief and lives in one typed file. **Add the LinkedIn and Dribbble
 URLs there** — empty links are hidden.
 
