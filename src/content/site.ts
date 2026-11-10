@@ -37,9 +37,13 @@ export const site = {
       secondary: { label: "Get in touch", href: "#contact" },
     },
     specialisms: ["UI Design", "UX Research", "Wireframing", "Prototyping", "Usability Evaluation"],
-    snapshot: [
-      { label: "Education", value: "MSc User Experience Design,\nBirmingham City University" },
-      { label: "Previously", value: "UI/UX at Lyxux UK, Cloud99X and SkyNet Hosting.\nRisk advisory at Deloitte." },
+    /** Short facts under the hero. Each item: a main line and an optional detail. */
+    education: [{ main: "MSc User Experience Design", detail: "Birmingham City University" }],
+    previously: [
+      { main: "Lyxux UK", detail: "UI/UX" },
+      { main: "Cloud99X", detail: "UI/UX" },
+      { main: "SkyNet Hosting", detail: "UI/UX" },
+      { main: "Deloitte", detail: "Risk advisory" },
     ],
   },
 

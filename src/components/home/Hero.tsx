@@ -41,26 +41,42 @@ export function Hero() {
           </Button>
         </Reveal>
 
-        <Reveal delay={0.85} className="mt-16 grid gap-8 text-[15px] leading-[1.5] sm:grid-cols-2 md:mt-20 md:grid-cols-[auto_auto_1fr] md:gap-14">
-          {hero.snapshot.map((item) => (
-            <div key={item.label}>
-              <p className="mb-1.5 text-subtle">{item.label}</p>
-              <p className="whitespace-pre-line text-ink/80">{item.value}</p>
-            </div>
-          ))}
-          <div className="sm:col-span-2 md:col-span-1">
-            <p className="mb-1.5 text-subtle">Focus</p>
-            <ul className="flex flex-wrap gap-x-2 gap-y-1 text-ink/80">
-              {hero.specialisms.map((s, i) => (
-                <li key={s} className="flex items-center gap-2">
-                  {s}
-                  {i < hero.specialisms.length - 1 && <span className="text-subtle/70">·</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <Reveal delay={0.85} className="mt-16 grid gap-10 text-[15px] leading-[1.6] sm:grid-cols-2 md:mt-20 md:grid-cols-3 md:gap-12">
+          <Fact label="Education">
+            {hero.education.map((e) => (
+              <li key={e.main}>
+                <span className="block text-ink/85">{e.main}</span>
+                <span className="block text-muted">{e.detail}</span>
+              </li>
+            ))}
+          </Fact>
+          <Fact label="Previously">
+            {hero.previously.map((r) => (
+              <li key={r.main} className="grid grid-cols-[9.5rem_1fr] items-baseline gap-x-4">
+                <span className="text-ink/85">{r.main}</span>
+                <span className="text-muted">{r.detail}</span>
+              </li>
+            ))}
+          </Fact>
+          <Fact label="Focus">
+            {hero.specialisms.map((f) => (
+              <li key={f} className="text-ink/85">
+                {f}
+              </li>
+            ))}
+          </Fact>
         </Reveal>
       </div>
     </section>
+  );
+}
+
+/** One column of the facts row: a quiet label above an evenly spaced list. */
+function Fact({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <p className="mb-3 text-[13.5px] text-subtle">{label}</p>
+      <ul className="grid gap-1.5">{children}</ul>
+    </div>
   );
 }
