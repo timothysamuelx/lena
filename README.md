@@ -18,7 +18,7 @@ The signature detail is a design-tool theme: Figma-style selection boxes and a
 - **Tailwind CSS v4**
 - **Sanity v6** with an embedded Studio at `/studio`, live content updates (`<SanityLive />`) and the Presentation tool for click-to-edit previews
 - **Motion** (Framer Motion) for animations, **Lenis** for smooth scrolling
-- Fonts: Brygada 1918 (display serif, self-hosted, OFL), Geist Sans
+- Fonts: Petrona (display serif, self-hosted, OFL), Geist Sans
 
 ## Getting started
 
