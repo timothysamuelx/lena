@@ -32,9 +32,6 @@ export function ProjectCard({ project, priority, order }: { project: ProjectCard
             <span className="text-subtle">{meta}</span>
           </>
         )}
-        {project.isSample && (
-          <span className="ml-auto self-center rounded-full border border-line-strong px-2 py-0.5 text-[11px] uppercase tracking-wide text-subtle">Sample</span>
-        )}
       </div>
       {project.summary && <p className="mt-1 max-w-[48ch] text-[14.5px] leading-relaxed text-muted">{project.summary}</p>}
     </>

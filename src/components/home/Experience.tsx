@@ -32,9 +32,9 @@ function Points({ items, style }: { items: readonly string[]; style: PointStyle 
     <ul className="mt-4 grid max-w-[62ch] gap-2 text-[15.5px] leading-relaxed text-muted">
       {items.map((p, i) => (
         <li key={p} className={cn("relative", style === "number" ? "pl-8" : style === "arrow" ? "pl-6" : "pl-5")}>
-          {style === "square" && <span aria-hidden className="absolute left-0 top-[0.66em] size-[5px] bg-accent" />}
+          {style === "square" && <span aria-hidden className="absolute left-0 top-[0.66em] size-[5px] bg-subtle" />}
           {style === "number" && (
-            <span aria-hidden className="absolute left-0 top-[0.2em] font-mono text-[12px] text-subtle">
+            <span aria-hidden className="absolute left-0 top-[0.1em] text-[13px] tabular-nums text-subtle">
               {String(i + 1).padStart(2, "0")}
             </span>
           )}
@@ -61,7 +61,7 @@ export function Experience({ roles, pointsPerRole, pointStyle }: { roles: readon
           delay={i * 0.05}
           className="grid gap-x-6 gap-y-2 border-t border-line py-8 md:grid-cols-[11rem_1fr] md:py-10"
         >
-          <p className="font-mono text-[12.5px] leading-7 text-subtle">{r.period}</p>
+          <p className="text-[14px] leading-7 tabular-nums text-subtle">{r.period}</p>
           <div>
             <h3 className="text-[18px] leading-snug text-ink">
               {r.company}

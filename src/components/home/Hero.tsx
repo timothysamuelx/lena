@@ -8,7 +8,7 @@ import { HeroSelection } from "./HeroSelection";
 export function Hero() {
   const { hero } = site;
   return (
-    <section className="relative">
+    <section id="about" className="relative">
       <div className="wrap w-default pb-20 pt-[calc(var(--header-h)+12vh)] md:pb-28 md:pt-[calc(var(--header-h)+16vh)]">
         <Reveal animation="fade" duration={1.2}>
           <p className="mb-7 flex items-center gap-2.5 text-[15px] text-muted">

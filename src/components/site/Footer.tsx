@@ -4,13 +4,12 @@ import { BackToTop } from "./BackToTop";
 
 export function Footer() {
   const links = [
-    { label: "Email", href: `mailto:${site.contact.email}` },
     { label: "LinkedIn", href: site.contact.linkedin },
     { label: "Dribbble", href: site.contact.dribbble },
   ].filter((l) => l.href);
 
   return (
-    <footer className="relative border-t border-line">
+    <footer className="relative border-t border-line bg-bg">
       <div className="grid gap-10 px-6 py-10 text-[15px] sm:grid-cols-3 md:px-12">
         <div className="space-y-1">
           <p className="text-ink">{site.name}</p>

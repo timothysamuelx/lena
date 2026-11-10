@@ -90,7 +90,7 @@ export function CardsView({ block }: { block: CardsBlock }) {
             {hasMedia(item.media) && (
               <MediaFrame media={item.media} aspect={block.mediaAspect} fit="contain" rounded sizes="(min-width: 768px) 25vw, 50vw" className={clean(block.mediaAspect) === "auto" || !block.mediaAspect ? "max-w-14" : ""} />
             )}
-            {numbered && <span className="font-mono text-[12px] text-subtle">{String(i + 1).padStart(2, "0")}</span>}
+            {numbered && <span className="text-[13px] tabular-nums text-subtle">{String(i + 1).padStart(2, "0")}</span>}
             {item.kicker && <span className="text-[13px] text-subtle">{item.kicker}</span>}
             {item.title && <h4 className="text-[1.0625rem] font-medium leading-snug text-ink">{item.title}</h4>}
             {item.body && <p className="text-[15px] leading-relaxed text-muted">{item.body}</p>}

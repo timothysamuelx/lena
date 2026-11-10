@@ -1,4 +1,3 @@
-import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import localFont from "next/font/local";
 
@@ -13,4 +12,4 @@ export const newsreader = localFont({
   fallback: ["Iowan Old Style", "Georgia", "serif"],
 });
 
-export const fontVariables = [GeistSans.variable, GeistMono.variable, newsreader.variable].join(" ");
+export const fontVariables = [GeistSans.variable, newsreader.variable].join(" ");

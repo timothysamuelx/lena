@@ -125,7 +125,7 @@ export function Header({ crumb }: HeaderProps) {
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <Link href={homeHref(item.id)} onClick={() => setOpen(false)} className="flex items-baseline gap-4 font-serif text-5xl tracking-tight">
-                    <span className="font-mono text-xs text-subtle">0{i + 1}</span>
+                    <span className="text-sm tabular-nums text-subtle">0{i + 1}</span>
                     {item.label}
                   </Link>
                 </motion.li>

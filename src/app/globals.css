@@ -44,7 +44,6 @@
 
 @theme inline {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
   --font-serif: var(--font-newsreader), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 
   --color-bg: var(--bg);
@@ -158,7 +157,7 @@ body {
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -198,7 +197,7 @@ body {
 }
 .rich a:hover { text-decoration-color: var(--accent); }
 .rich code {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.875em;
   padding: 0.1em 0.35em;
   border-radius: 4px;
@@ -249,7 +248,7 @@ body {
   background: currentColor;
 }
 .rich ol { list-style: decimal-leading-zero; }
-.rich ol > li::marker { font-family: var(--font-mono); font-size: 0.8em; color: var(--subtle); }
+.rich ol > li::marker { font-variant-numeric: tabular-nums; font-size: 0.85em; color: var(--subtle); }
 .rich li + li { margin-top: 0.4em; }
 .rich-lg { font-size: 1.1875rem; }
 .rich-display {
