@@ -99,6 +99,8 @@ export const site = {
       {
         company: "Deloitte",
         role: "Associate Risk Advisor",
+        /** Not a design role: show only company, title and dates. */
+        hideDetails: true,
         period: "Aug 2022 — Jul 2023",
         summary:
           "Built analytical and quality-focused experience through application assessments and technology risk work.",

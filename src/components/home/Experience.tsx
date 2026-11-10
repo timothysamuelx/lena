@@ -10,6 +10,8 @@ interface Role {
   period: string;
   summary: string;
   points: readonly string[];
+  /** Show only company, title and dates. */
+  hideDetails?: boolean;
 }
 
 /** One role's highlighted points, with the chosen marker style. */
@@ -68,8 +70,12 @@ export function Experience({ roles, pointsPerRole, pointStyle }: { roles: readon
               {r.location && <span className="text-subtle"> · {r.location}</span>}
             </h3>
             <p className="mt-0.5 text-[15px] text-muted">{r.role}</p>
-            <p className="mt-4 max-w-[62ch] text-[16px] leading-relaxed text-ink/85">{r.summary}</p>
-            <Points items={r.points.slice(0, pointsPerRole)} style={pointStyle} />
+            {!r.hideDetails && (
+              <>
+                <p className="mt-4 max-w-[62ch] text-[16px] leading-relaxed text-ink/85">{r.summary}</p>
+                <Points items={r.points.slice(0, pointsPerRole)} style={pointStyle} />
+              </>
+            )}
           </div>
         </Reveal>
       ))}
