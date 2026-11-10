@@ -30,7 +30,7 @@ export function Contact() {
           <Reveal className="space-y-8 md:pt-1" delay={0.2}>
             <div>
               <p className="mb-2 text-[15px] text-subtle">Email</p>
-              <a href={`mailto:${contact.email}`} className="link break-all font-serif text-[clamp(1.375rem,2.6vw,2rem)] text-ink" data-cursor="Say hello">
+              <a href={`mailto:${contact.email}`} className="link whitespace-nowrap font-serif text-[clamp(1.25rem,2.2vw,1.75rem)] text-ink" data-cursor="Say hello">
                 {contact.email}
               </a>
             </div>

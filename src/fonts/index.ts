@@ -2,17 +2,17 @@ import { GeistSans } from "geist/font/sans";
 import localFont from "next/font/local";
 
 /**
- * Petrona — the display serif (headlines, section titles, quotes).
- * SIL Open Font License 1.1 (see Petrona-OFL.txt). Variable, 100–900.
+ * Noto Serif Display — the display serif (headlines, section titles, quotes).
+ * SIL Open Font License 1.1 (see Noto-Serif-Display-OFL.txt). Variable, 100–900.
  */
-export const petrona = localFont({
+export const notoSerifDisplay = localFont({
   src: [
-    { path: "./petrona-latin-wght-normal.woff2", style: "normal", weight: "100 900" },
-    { path: "./petrona-latin-wght-italic.woff2", style: "italic", weight: "100 900" },
+    { path: "./noto-serif-display-latin-wght-normal.woff2", style: "normal", weight: "100 900" },
+    { path: "./noto-serif-display-latin-wght-italic.woff2", style: "italic", weight: "100 900" },
   ],
   variable: "--font-display-serif",
   display: "swap",
   fallback: ["Iowan Old Style", "Georgia", "serif"],
 });
 
-export const fontVariables = [GeistSans.variable, petrona.variable].join(" ");
+export const fontVariables = [GeistSans.variable, notoSerifDisplay.variable].join(" ");
