@@ -59,7 +59,7 @@ export function Experience({ roles, pointsPerRole, pointStyle }: { roles: readon
           as="li"
           key={r.company}
           delay={i * 0.05}
-          className="grid gap-x-6 gap-y-2 border-t border-line py-8 md:grid-cols-[11rem_1fr] md:py-10"
+          className="grid gap-x-6 gap-y-2 border-t border-line py-8 first:border-t-0 first:pt-0 md:grid-cols-[11rem_1fr] md:py-10 md:first:pt-0"
         >
           <p className="text-[14px] leading-7 tabular-nums text-subtle">{r.period}</p>
           <div>
