@@ -21,3 +21,4 @@ export const RemoveIcon = icons.remove;
 export const SplitHorizontalIcon = icons["split-horizontal"];
 export const TextIcon = icons.text;
 export const ThListIcon = icons["th-list"];
+export const UserIcon = icons.user;

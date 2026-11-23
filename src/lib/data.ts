@@ -1,10 +1,11 @@
 import { stegaClean } from "next-sanity";
 
+import { samplePhotos } from "@/content/samplePhotos";
 import { sampleProjects } from "@/content/samples";
-import type { Project, ProjectCard } from "@/lib/types";
+import type { Photography, Profile, Project, ProjectCard } from "@/lib/types";
 import { isSanityConfigured } from "@/sanity/env";
 import { cachedSanity, publishedOptions, type FetchOptions } from "@/sanity/live";
-import { PROJECT_QUERY, PROJECT_SLUGS_QUERY, PROJECTS_QUERY } from "@/sanity/queries";
+import { PHOTOGRAPHY_QUERY, PROFILE_QUERY, PROJECT_QUERY, PROJECT_SLUGS_QUERY, PROJECTS_QUERY } from "@/sanity/queries";
 
 function toCard(project: Project): ProjectCard {
   const { _id, title, slug, summary, projectType, year, featured, cover, cardColor, cardAspect, cardFit, cardPadding, cardCursor, externalUrl, isSample } = project;
@@ -57,4 +58,20 @@ export async function getProjectSlugs(): Promise<string[]> {
 
   const { data } = await cachedSanity({ query: PROJECT_SLUGS_QUERY, ...publishedOptions });
   return ((data ?? []) as { slug: string }[]).map((p) => p.slug);
+}
+
+/** The Profile singleton (hero portrait). */
+export async function getProfile(options: FetchOptions = publishedOptions): Promise<Profile | null> {
+  if (!isSanityConfigured) return null;
+
+  const { data } = await cachedSanity({ query: PROFILE_QUERY, ...options });
+  return (data as Profile | null) ?? null;
+}
+
+/** Photos for /photography, in Studio order. */
+export async function getPhotography(options: FetchOptions = publishedOptions): Promise<Photography> {
+  if (!isSanityConfigured) return { photos: samplePhotos, isSample: true };
+
+  const { data } = await cachedSanity({ query: PHOTOGRAPHY_QUERY, ...options });
+  return { photos: (data as Photography | null)?.photos ?? [] };
 }

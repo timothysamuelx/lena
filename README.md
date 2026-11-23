@@ -1,6 +1,7 @@
 # Nandun Nethanga Perera — UI/UX Portfolio
 
-A work-first portfolio: a single landing page plus a case-study page per project.
+A work-first portfolio: a single landing page, a case-study page per project, and a
+photography page for Nandun’s hobby.
 **Every project page is fully editable in Sanity** — text, images, video, layout,
 widths, spacing, colours, animations and order.
 
@@ -28,8 +29,10 @@ npm run dev
 ```
 
 Open http://localhost:3000. Until Sanity is connected the site shows four clearly
-labelled **sample projects** (a case-study template and block showcases) so you can
-see every layout option. They disappear automatically once Sanity is configured.
+labelled **sample projects** (a case-study template and block showcases), **sample
+illustrations** on `/photography`, and a monogram placeholder instead of the hero
+portrait, so you can see every layout. They disappear automatically once Sanity is
+configured.
 
 ## Connect Sanity
 
@@ -55,6 +58,17 @@ see every layout option. They disappear automatically once Sanity is configured.
 All landing-page copy (hero intro, selected-work intro, experience, contact) comes from
 Nandun’s content brief and lives in one typed file. **Add the LinkedIn and Dribbble
 URLs there** — empty links are hidden.
+
+### Portrait — Sanity Studio → **Profile**
+
+Upload Nandun’s portrait (shown in the hero, cropped to 4:5) and set the hotspot on
+the face. Until it’s uploaded the hero shows a monogram placeholder.
+
+### Photography — Sanity Studio → **Photography**
+
+Drop photos into the **Photos** field (several at once is fine) and drag to reorder.
+Each photo can have a title, location, year and alt text. The page title and intro
+live in `src/content/site.ts` (`photography`).
 
 ### Projects — Sanity Studio (`/studio`)
 
@@ -112,15 +126,17 @@ From the content brief (section 12):
 
 ```
 sanity.config.ts            Studio config (structure, presentation, plugins)
-src/app/(site)/             Landing page, /work/[slug] case studies, 404
+src/app/(site)/             Landing page, /work/[slug] case studies, /photography, 404
 src/app/studio/             Embedded Sanity Studio
 src/app/api/draft-mode/     Preview (draft mode) enable/disable
 src/components/home/        Landing-page sections
 src/components/project/     Case-study header, hero, next project, progress
+src/components/photography/ Photo grid + full-screen viewer
 src/components/blocks/      Page-builder block renderers
 src/components/media/       Sanity image/video, framed media, rich text
 src/components/site/        Header, side rail, footer, cursor, buttons
 src/content/site.ts         Landing-page content
 src/content/samples.ts      Sample projects (only used without Sanity)
+src/content/samplePhotos.ts Sample photos (only used without Sanity)
 src/sanity/                 Client, live fetching, queries, schema
 ```

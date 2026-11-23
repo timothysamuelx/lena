@@ -38,3 +38,11 @@ export const PROJECT_QUERY = defineQuery(`
 export const PROJECT_SLUGS_QUERY = defineQuery(`
   *[_type == "project" && defined(slug.current)]{ "slug": slug.current }
 `);
+
+export const PROFILE_QUERY = defineQuery(`
+  *[_type == "profile"][0]{ portrait }
+`);
+
+export const PHOTOGRAPHY_QUERY = defineQuery(`
+  *[_type == "photography"][0]{ "photos": photos[defined(asset)] }
+`);

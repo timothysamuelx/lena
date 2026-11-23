@@ -20,17 +20,16 @@ export function Contact() {
         </Reveal>
         <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-[1fr_1fr] md:gap-16">
           <Reveal className="space-y-4" delay={0.1}>
-            {contactSection.body.map((p) => (
+            {[...contactSection.body, contactSection.signoff].map((p) => (
               <p key={p} className="max-w-[46ch] text-[17px] leading-[1.7] text-muted">
                 {p}
               </p>
             ))}
-            <p className="pt-2 font-serif text-[1.375rem] italic text-ink">{contactSection.signoff}</p>
           </Reveal>
           <Reveal className="space-y-8 md:pt-1" delay={0.2}>
             <div>
               <p className="mb-2 text-[15px] text-subtle">Email</p>
-              <a href={`mailto:${contact.email}`} className="link whitespace-nowrap font-serif text-[clamp(1.25rem,2.2vw,1.75rem)] text-ink" data-cursor="Say hello">
+              <a href={`mailto:${contact.email}`} className="link whitespace-nowrap text-[clamp(1.25rem,2.2vw,1.75rem)] text-ink" data-cursor="Say hello">
                 {contact.email}
               </a>
             </div>

@@ -4,13 +4,14 @@ import { Suspense } from "react";
 import { Contact } from "@/components/home/Contact";
 import { Experience } from "@/components/home/Experience";
 import { Hero } from "@/components/home/Hero";
+import { Portrait } from "@/components/home/Portrait";
 import { Section, SectionHeader } from "@/components/home/SectionHeader";
 import { WorkGrid } from "@/components/home/WorkGrid";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { SideNav } from "@/components/site/SideNav";
 import { site } from "@/content/site";
-import { getFeaturedProjects } from "@/lib/data";
+import { getFeaturedProjects, getProfile } from "@/lib/data";
 import { getDynamicFetchOptions, publishedOptions, type FetchOptions } from "@/sanity/live";
 
 async function Work({ options }: { options: FetchOptions }) {
@@ -20,6 +21,15 @@ async function Work({ options }: { options: FetchOptions }) {
 
 async function DraftWork() {
   return <Work options={await getDynamicFetchOptions()} />;
+}
+
+async function HeroPortrait({ options }: { options: FetchOptions }) {
+  const profile = await getProfile(options);
+  return <Portrait image={profile?.portrait} />;
+}
+
+async function DraftHeroPortrait() {
+  return <HeroPortrait options={await getDynamicFetchOptions()} />;
 }
 
 export default async function HomePage() {
@@ -34,7 +44,17 @@ export default async function HomePage() {
       </div>
 
       <main className="relative z-10">
-        <Hero />
+        <Hero
+          portrait={
+            isDraft ? (
+              <Suspense fallback={<Portrait />}>
+                <DraftHeroPortrait />
+              </Suspense>
+            ) : (
+              <HeroPortrait options={publishedOptions} />
+            )
+          }
+        />
 
         <Section id="work">
           <SectionHeader title={site.work.title} intro={site.work.intro} />

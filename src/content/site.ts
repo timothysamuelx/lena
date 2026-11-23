@@ -26,6 +26,9 @@ export const site = {
     { id: "contact", label: "Contact" },
   ],
 
+  /** Separate pages, linked from the header, mobile menu and footer. */
+  pages: [{ href: "/photography", label: "Photography" }],
+
   hero: {
     headline: "Designing thoughtful, intuitive digital experiences.",
     /** Word in the headline that gets the design-tool "selection" treatment. */
@@ -116,6 +119,13 @@ export const site = {
         ],
       },
     ],
+  },
+
+  photography: {
+    title: "Photography",
+    /** Placeholder copy — replace with Nandun's own words. */
+    intro:
+      "Away from the screen, I take photographs. A small collection of places, light and moments I’ve noticed along the way.",
   },
 
   contactSection: {

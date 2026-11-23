@@ -11,7 +11,7 @@ import { defineDocuments, defineLocations, presentationTool } from "sanity/prese
 import { structureTool } from "sanity/structure";
 
 import { apiVersion, dataset, resolvedProjectId, studioBasePath } from "./src/sanity/env";
-import { schemaTypes } from "./src/sanity/schemaTypes";
+import { schemaTypes, singletonTypes } from "./src/sanity/schemaTypes";
 import { structure } from "./src/sanity/structure";
 
 export default defineConfig({
@@ -20,7 +20,11 @@ export default defineConfig({
   basePath: studioBasePath,
   projectId: resolvedProjectId,
   dataset,
-  schema: { types: schemaTypes },
+  schema: {
+    types: schemaTypes,
+    // Singletons can't be created from the global "+" menu.
+    templates: (templates) => templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),
+  },
   plugins: [
     structureTool({ structure }),
     presentationTool({
@@ -28,6 +32,8 @@ export default defineConfig({
       resolve: {
         mainDocuments: defineDocuments([
           { route: "/work/:slug", filter: `_type == "project" && slug.current == $slug` },
+          { route: "/photography", filter: `_type == "photography"` },
+          { route: "/", filter: `_type == "profile"` },
         ]),
         locations: {
           project: defineLocations({
@@ -39,6 +45,14 @@ export default defineConfig({
               ],
             }),
           }),
+          photography: defineLocations({
+            message: "Photos appear on the photography page",
+            locations: [{ title: "Photography", href: "/photography" }],
+          }),
+          profile: defineLocations({
+            message: "The portrait appears in the home page hero",
+            locations: [{ title: "Home", href: "/" }],
+          }),
         },
       },
     }),
@@ -46,7 +60,12 @@ export default defineConfig({
     visionTool({ defaultApiVersion: apiVersion }),
   ],
   document: {
-    // Projects are the only document type; hide "create" for anything else.
+    // Projects are the only listable type; Photography and Profile are singletons.
     newDocumentOptions: (prev) => prev.filter((item) => item.templateId === "project"),
+    // Singletons can only be edited and published, never duplicated or deleted.
+    actions: (prev, { schemaType }) =>
+      singletonTypes.has(schemaType)
+        ? prev.filter(({ action }) => action && ["publish", "discardChanges", "restore"].includes(action))
+        : prev,
   },
 });

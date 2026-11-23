@@ -3,6 +3,7 @@
 import { useLenis } from "lenis/react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { site } from "@/content/site";
@@ -12,16 +13,19 @@ import { ArrowIcon } from "./Button";
 import { ThemeToggle } from "./ThemeToggle";
 
 interface HeaderProps {
-  /** On case-study pages: shows "← Work / {crumb}" instead of the name. */
+  /** On inner pages: shows "← {back.label} / {crumb}" instead of the name. */
   crumb?: string;
+  /** Where the crumb's back link goes (default: the Work section). */
+  back?: { href: string; label: string };
 }
 
 const homeHref = (id: string) => `/#${id}`;
 
-export function Header({ crumb }: HeaderProps) {
+export function Header({ crumb, back = { href: "/#work", label: "Work" } }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const lenis = useLenis();
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -47,9 +51,9 @@ export function Header({ crumb }: HeaderProps) {
         <div className="flex h-full items-center justify-between px-6">
           {crumb ? (
             <nav aria-label="Breadcrumb" className="flex min-w-0 items-center gap-2 text-[15px]">
-              <Link href="/#work" className="group flex items-center gap-1.5 text-subtle transition-colors hover:text-ink">
+              <Link href={back.href} className="group flex items-center gap-1.5 text-subtle transition-colors hover:text-ink">
                 <ArrowIcon direction="left" className="transition-transform duration-300 group-hover:-translate-x-0.5" />
-                Work
+                {back.label}
               </Link>
               <span className="text-subtle/60">/</span>
               <span className="truncate text-ink">{crumb}</span>
@@ -71,11 +75,23 @@ export function Header({ crumb }: HeaderProps) {
           )}
 
           <div className="flex items-center gap-1">
-            <ul className={cn("mr-2 hidden items-center gap-6 text-[15px] md:flex", !crumb && "xl:hidden")}>
+            <ul className="mr-2 hidden items-center gap-6 text-[15px] md:flex">
               {site.nav.map((item) => (
-                <li key={item.id}>
+                // On the home page the side rail takes over the section links at xl.
+                <li key={item.id} className={cn(!crumb && "xl:hidden")}>
                   <Link href={homeHref(item.id)} className="text-muted transition-colors hover:text-ink">
                     {item.label}
+                  </Link>
+                </li>
+              ))}
+              {site.pages.map((page) => (
+                <li key={page.href}>
+                  <Link
+                    href={page.href}
+                    aria-current={pathname === page.href ? "page" : undefined}
+                    className={cn("transition-colors hover:text-ink", pathname === page.href ? "text-ink" : "text-muted")}
+                  >
+                    {page.label}
                   </Link>
                 </li>
               ))}
@@ -118,13 +134,13 @@ export function Header({ crumb }: HeaderProps) {
               animate="show"
               variants={{ show: { transition: { staggerChildren: 0.06, delayChildren: 0.15 } } }}
             >
-              {site.nav.map((item, i) => (
+              {[...site.nav.map((item) => ({ href: homeHref(item.id), label: item.label })), ...site.pages].map((item, i) => (
                 <motion.li
-                  key={item.id}
+                  key={item.href}
                   variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <Link href={homeHref(item.id)} onClick={() => setOpen(false)} className="flex items-baseline gap-4 font-serif text-5xl tracking-tight">
+                  <Link href={item.href} onClick={() => setOpen(false)} className="flex items-baseline gap-4 font-serif text-5xl tracking-tight">
                     <span className="text-sm tabular-nums text-subtle">0{i + 1}</span>
                     {item.label}
                   </Link>

@@ -1,9 +1,12 @@
+import Link from "next/link";
+
 import { site } from "@/content/site";
 
 import { BackToTop } from "./BackToTop";
 
 export function Footer() {
   const links = [
+    ...site.pages,
     { label: "LinkedIn", href: site.contact.linkedin },
     { label: "Dribbble", href: site.contact.dribbble },
   ].filter((l) => l.href);
@@ -18,13 +21,19 @@ export function Footer() {
         <ul className="space-y-1">
           {links.map((l) => (
             <li key={l.label}>
-              <a
-                href={l.href}
-                className="text-muted transition-colors hover:text-ink"
-                {...(l.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
-              >
-                {l.label}
-              </a>
+              {l.href.startsWith("/") ? (
+                <Link href={l.href} className="text-muted transition-colors hover:text-ink">
+                  {l.label}
+                </Link>
+              ) : (
+                <a
+                  href={l.href}
+                  className="text-muted transition-colors hover:text-ink"
+                  {...(l.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
+                >
+                  {l.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>

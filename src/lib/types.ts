@@ -251,3 +251,21 @@ export interface Project extends ProjectCard {
   seoDescription?: string;
   ogImage?: ImageValue;
 }
+
+/* ── Profile & photography ───────────────────────────────── */
+
+export interface Profile {
+  portrait?: ImageValue;
+}
+
+export interface Photo extends ImageValue, Keyed {
+  title?: string;
+  location?: string;
+  year?: string;
+}
+
+export interface Photography {
+  photos: Photo[];
+  /** True for the bundled sample photos shown before Sanity is connected. */
+  isSample?: boolean;
+}

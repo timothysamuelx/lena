@@ -6,41 +6,50 @@ import { cn } from "@/lib/utils";
 
 import { HeroSelection } from "./HeroSelection";
 
-export function Hero() {
+/** `portrait` is streamed in from Sanity (see the home page). */
+export function Hero({ portrait }: { portrait: React.ReactNode }) {
   const { hero } = site;
   return (
     <section id="about" className="relative">
-      <div className="wrap w-default pb-20 pt-[calc(var(--header-h)+12vh)] md:pb-28 md:pt-[calc(var(--header-h)+16vh)]">
-        <Reveal animation="fade" duration={1.2}>
-          <p className="mb-7 flex items-center gap-2.5 text-[15px] text-muted">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-50" />
-              <span className="relative inline-flex size-2 rounded-full bg-accent" />
-            </span>
-            {site.name} <span className="text-subtle">—</span> {site.role}
-          </p>
-        </Reveal>
+      <div className="wrap w-default pb-20 pt-[calc(var(--header-h)+7vh)] md:pb-28 md:pt-[calc(var(--header-h)+12vh)] lg:pt-[calc(var(--header-h)+14vh)]">
+        <div className="grid gap-10 md:gap-12 lg:grid-cols-[minmax(0,1fr)_clamp(14rem,22vw,18rem)] lg:gap-16">
+          <Reveal animation="reveal" delay={0.35} className="lg:order-2">
+            {portrait}
+          </Reveal>
 
-        <WordReveal
-          text={hero.headline}
-          delay={0.15}
-          className="max-w-[17ch] text-balance font-serif text-[clamp(2.6rem,6.4vw,5rem)] font-[370] leading-[1.04] tracking-[-0.032em] text-ink"
-          highlightWord={hero.highlight}
-          highlight={<HeroSelection>{hero.highlight}</HeroSelection>}
-        />
+          <div>
+            <Reveal animation="fade" duration={1.2}>
+              <p className="mb-7 flex items-center gap-2.5 text-[15px] text-muted">
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-50" />
+                  <span className="relative inline-flex size-2 rounded-full bg-accent" />
+                </span>
+                {site.role}
+              </p>
+            </Reveal>
 
-        <Reveal delay={0.55} className="mt-10 max-w-[60ch]">
-          <p className="text-[17px] leading-[1.7] text-muted md:text-[18px]">{hero.intro}</p>
-        </Reveal>
+            <WordReveal
+              text={hero.headline}
+              delay={0.15}
+              className="max-w-[17ch] text-balance font-serif text-[clamp(2.6rem,6.4vw,5rem)] font-[370] leading-[1.04] tracking-[-0.032em] text-ink"
+              highlightWord={hero.highlight}
+              highlight={<HeroSelection>{hero.highlight}</HeroSelection>}
+            />
 
-        <Reveal delay={0.7} className="mt-10 flex flex-wrap items-center gap-4">
-          <Button href={hero.ctas.primary.href} icon={<ArrowIcon direction="down" />}>
-            {hero.ctas.primary.label}
-          </Button>
-          <Button href={hero.ctas.secondary.href} variant="secondary">
-            {hero.ctas.secondary.label}
-          </Button>
-        </Reveal>
+            <Reveal delay={0.55} className="mt-10 max-w-[60ch]">
+              <p className="text-[17px] leading-[1.7] text-muted md:text-[18px]">{hero.intro}</p>
+            </Reveal>
+
+            <Reveal delay={0.7} className="mt-10 flex flex-wrap items-center gap-4">
+              <Button href={hero.ctas.primary.href} icon={<ArrowIcon direction="down" />}>
+                {hero.ctas.primary.label}
+              </Button>
+              <Button href={hero.ctas.secondary.href} variant="secondary">
+                {hero.ctas.secondary.label}
+              </Button>
+            </Reveal>
+          </div>
+        </div>
 
         <Reveal delay={0.85} className="mt-16 grid gap-10 text-[15px] leading-[1.6] sm:grid-cols-2 md:mt-20 md:grid-cols-3 md:gap-12">
           <Fact label="Education">

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dcd7cd"/>
+      <stop offset="1" stop-color="#c2bbae"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.4" r="0.45">
+      <stop offset="0" stop-color="#f3eee5" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#f3eee5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sweater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4654"/>
+      <stop offset="1" stop-color="#262e38"/>
+    </linearGradient>
+    <clipPath id="neckClip"><path d="M522 860 L678 860 L690 1100 C640 1140 560 1140 510 1100 Z"/></clipPath>
+  </defs>
+
+  <rect width="1200" height="1500" fill="url(#bg)"/>
+  <rect width="1200" height="1500" fill="url(#glow)"/>
+
+  <g transform="translate(600 1500) scale(1.3) translate(-600 -1500)">
+  <!-- Shoulders -->
+  <path d="M130 1500 C150 1240 320 1110 470 1078 L730 1078 C880 1110 1050 1240 1070 1500 Z" fill="url(#sweater)"/>
+
+  <!-- Neck -->
+  <path d="M522 860 L678 860 L690 1100 C640 1140 560 1140 510 1100 Z" fill="#a67d62"/>
+  <ellipse cx="600" cy="890" rx="150" ry="60" fill="#000" opacity="0.14" clip-path="url(#neckClip)"/>
+
+  <!-- Collar -->
+  <path d="M470 1078 C520 1160 680 1160 730 1078 L700 1076 C660 1130 540 1130 500 1076 Z" fill="#4a5868"/>
+
+  <g transform="translate(0 55)">
+  <!-- Ears -->
+  <ellipse cx="430" cy="725" rx="28" ry="52" fill="#ab8266"/>
+  <ellipse cx="770" cy="725" rx="28" ry="52" fill="#ab8266"/>
+
+  <!-- Head -->
+  <ellipse cx="600" cy="700" rx="172" ry="218" fill="#b98f72"/>
+
+  <!-- Hair -->
+  <path d="M424 690 C404 540 480 452 604 448 C728 444 806 520 790 690 C772 618 724 574 650 566 C574 560 488 588 424 690 Z" fill="#23262b"/>
+  <path d="M470 560 C520 470 640 450 720 500 C660 486 560 492 470 560 Z" fill="#33373e"/>
+  </g>
+  </g>
+</svg>
