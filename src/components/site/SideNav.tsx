@@ -2,6 +2,7 @@
 
 import { useLenis } from "lenis/react";
 import { motion } from "motion/react";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -16,7 +17,18 @@ export interface NavItem {
  * Fixed left rail with scroll-spy (inspired by editorial portfolio sidebars).
  * Fades away while a full-bleed element ([data-bleed]) passes behind it.
  */
-export function SideNav({ items, title, className }: { items: NavItem[]; title?: string; className?: string }) {
+export function SideNav({
+  items,
+  links = [],
+  title,
+  className,
+}: {
+  items: NavItem[];
+  /** Links to other pages, listed below the sections. */
+  links?: readonly { href: string; label: string }[];
+  title?: string;
+  className?: string;
+}) {
   const [active, setActive] = useState<string | null>(items[0]?.id ?? null);
   const [hidden, setHidden] = useState(false);
   const navRef = useRef<HTMLElement>(null);
@@ -103,6 +115,13 @@ export function SideNav({ items, title, className }: { items: NavItem[]; title?:
             </li>
           );
         })}
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} className="block py-0.5 text-[15px] text-subtle transition-colors duration-300 hover:text-ink">
+              {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

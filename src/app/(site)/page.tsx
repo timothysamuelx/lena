@@ -38,7 +38,7 @@ export default async function HomePage() {
   return (
     <>
       <Header />
-      <SideNav items={[...site.nav]} />
+      <SideNav items={[...site.nav]} links={site.pages} />
       <div className="guides" aria-hidden>
         <div />
       </div>

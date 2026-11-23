@@ -77,7 +77,7 @@ export function Header({ crumb, back = { href: "/#work", label: "Work" } }: Head
           <div className="flex items-center gap-1">
             <ul className="mr-2 hidden items-center gap-6 text-[15px] md:flex">
               {site.nav.map((item) => (
-                // On the home page the side rail takes over the section links at xl.
+                // On the home page the side rail takes over these links at xl.
                 <li key={item.id} className={cn(!crumb && "xl:hidden")}>
                   <Link href={homeHref(item.id)} className="text-muted transition-colors hover:text-ink">
                     {item.label}
@@ -85,7 +85,7 @@ export function Header({ crumb, back = { href: "/#work", label: "Work" } }: Head
                 </li>
               ))}
               {site.pages.map((page) => (
-                <li key={page.href}>
+                <li key={page.href} className={cn(!crumb && "xl:hidden")}>
                   <Link
                     href={page.href}
                     aria-current={pathname === page.href ? "page" : undefined}
